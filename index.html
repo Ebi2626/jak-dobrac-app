@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jak dobrać?</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.bundle.css">
+</head>
+<body>
+    <header class="offset-1 col-10">
+        <nav>
+            <div class="hamburger-menu">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="menu">
+                <li></li>
+            </ul>
+        </div>
+    </nav>
+    <h1 class="col-12 text-center">Jak dobrać?</h1>
+    <p class="text-center text-justify-center">Jak dobrać? <sup>®</sup> to aplikacja gwarantująca elegancki dobór elementów męskiego ubioru.</p>
+</header>
+<main>
+    <section id="welcome" class="row">
+        <div id="welcome-left" class="offset-1 col-10">
+            <span id="dobrane"></span>
+            <h2 class="col-12 text-center subtitle my-2">Co chcesz dobrać?</h2>
+            <select class="form-control offset-1 col-10" id="choosing">
+                <option class="base-option" id="Krawat">Krawat</option>
+                <option class="base-option" id="Poszetkę">Poszetkę</option>
+                <option class="base-option" id="Muchę">Muchę</option>
+                <option class="base-option" id="Fular">Fular</option>
+                <option class="base-option" id="Skarpetki">Skarpetki</option>
+            </select>
+        </div>
+    </section>
+    <section id="counting">
+        <div class="row">
+        <div class="offset-1 col-10">
+            <h2 class="col-12 text-center my-2">A co już masz?</h2>
+            <select class="form-control offset-1 col-10" id="base">
+                    <option class="base-option" id="base-tie">Krawat</option>
+                    <option class="base-option" id="base-pocketSquare">Poszetkę</option>
+                    <option class="base-option" id="base-bowTie">Muchę</option>
+                    <option class="base-option" id="base-ascot">Fular</option>
+                    <option class="base-option" id="base-socks">Skarpetki</option>
+                </select>
+                </div>
+                </div>
+    </section>
+    <section id="parameters">
+        <div class="row">
+                <h2 class="col-12 text-center">Uzupełnij parametry</h2>
+                <small class="col-12 text-center">Twojego elementu garderoby, do którego dobierzemy drugi.</small>
+                <div class="mt-4 py-4 mx-auto col-9 parameters-div text-center">
+                    <form>
+                    <label for="firstColor">Kolor pierwszorzędny</label>
+                    <input id="firstColor" name="firstColor" type="color"><br/>
+                    <label for="secondColor">Kolor drugorzędny</label>
+                    <input id="secondColor" name="secondColor" type="color"><br/>
+                    <label for="thirdColor">Kolor trzeciorzędny</label>
+                    <input id="thirdColor" name="thirdColor" type="color"><br/>
+                    <label class="mt-2" for="pattern">Gęstość wzoru</label>
+                    <select id="pattern" name="pattern" class="form-control">
+                        <option>
+                            Brak
+                        </option>
+                        <option>Drobny</option>
+                        <option>Wzorzysty</option>
+                    </select>
+                    <label class="mt-2" for="patternType">Rodzaj wzoru</label>
+                    <select id="patternType" name="patternType" class="form-control">
+                        <option>
+                            Niegeometryczny
+                        </option>
+                        <option>Kratka</option>
+                        <option>Grochy</option>
+                        <option>Paski</option>
+                        <option>Kropki</option>
+                    </select>
+                    <button type="button" id="start" class="mt-4 btn btn-dark parameters-button ">Dobierz!</button>
+                </form>
+                </div>
+                
+        </div>
+    </section>
+    <section id="result">
+        <div class="row">
+            <h2 class="col-12 text-center">Nasze rekomendacje:</h2>
+            <div class="results my-4 p-2 col-12 text-center">
+                <div class="results-include mx-auto col-11 col-sm-10 col-md-10 col-lg-8 col-xl-6 p-2" id="ex-1">
+                    <h4 class="text-center p-2">Harmonijny Kontrast</h4>
+                    <div class="row">
+                        <p class="results-paragraph col-6">Kolor pierwszorzędny</p><div class="mx-auto col-3 col-sm-4 xl-3 result-colorBox" id="firstColorResult-1"></div>
+                </div>
+                <div class="row">
+                    <p class="results-paragraph col-6">Kolor drugorzędny</p><div class="mx-auto col-4 result-colorBox" id="secondColorResult-1"></div>
+                </div>
+                    <div class="row">
+                    <p class="results-paragraph col-6">Kolor trzeciorzędny</p><div class="mx-auto col-4 result-colorBox" id="thirdColorResult-1"></div>
+                </div>
+                <div class="row">
+                    <p class="results-paragraph col-6">Gęstość wzoru</p><p class="col-6" id="patternResult-1"></p>
+                </div>
+                    <div class="row">
+                            <p class="results-paragraph col-6">Rodzaj wzoru: </p><p class="col-6" id="patternTypeResult-1"></p>
+                </div>
+                </div>
+            </div>
+            <div class="results my-4 p-2 col-12 text-center">
+                <div class="results-include mx-auto col-11 col-sm-10 col-md-10 col-lg-8 col-xl-6 p-2" id="ex-2">
+                        <h4 class="text-center p-2">Ostry kontrast</h4>
+                       <div class="row">
+                            <p class="results-paragraph col-6">Kolor pierwszorzędny</p><div class="mx-auto col-4 result-colorBox" id="firstColorResult-2"></div>
+                        </div>
+                       <div class="row">
+                           <p class="results-paragraph col-6">Kolor drugorzędny</p><div class="mx-auto col-4 result-colorBox" id="secondColorResult-2"></div>
+                        </div> 
+                       <div class="row">
+                            <p class="results-paragraph col-6">Kolor trzeciorzędny</p><div class="mx-auto col-4 result-colorBox" id="thirdColorResult-2"></div>
+                        </div>
+                       <div class="row">
+                            <p class="results-paragraph col-6">Gęstość wzoru</p><p class="col-6" id="patternResult-2"></p>
+                        </div>
+                       <div class="row">
+                            <p class="results-paragraph col-6">Rodzaj wzoru: </p><p class="col-6" id="patternTypeResult-2"></p>
+                        </div>
+                </div>
+            </div>
+            <div class="results my-4 p-2 col-12 text-center">
+                <div class="results-include mx-auto col-11 col-sm-10 col-md-10 col-lg-8 col-xl-6 p-2"  id="ex-3">
+                        <h4 class="text-center p-2">Harmonia Barw</h4>
+                       <div class="row">
+                            <p class="results-paragraph col-6">Kolor pierwszorzędny</p><div class="mx-auto col-4 result-colorBox" id="firstColorResult-3"></div>
+                        </div>
+                       <div class="row">
+                            <p class="results-paragraph col-6">Kolor drugorzędny</p><div class="mx-auto col-4 result-colorBox" id="secondColorResult-3"></div>
+                        </div>
+                       <div class="row">
+                           <p class="results-paragraph col-6">Kolor trzeciorzędny</p><div class="mx-auto col-4 result-colorBox" id="thirdColorResult-3"></div>
+                        </div> 
+                       <div class="row">
+                            <p class="results-paragraph col-6">Gęstość wzoru</p><p class="col-6" id="patternResult-3"></p>
+                        </div> 
+                       <div class="row">
+                            <p class="results-paragraph col-6">Rodzaj wzoru: </p><p class="col-6" id="patternTypeResult-3"></p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="describe">
+        <div class="row">
+            <h2 class="col-12 text-center">Opis</h2>
+            <div id="explanation" class="describe-box my-4 p-2 offset-1 col-11 text-center">
+                <p class="col-11 text-center text-justify describe-paragraph" id="describe-paragraph">By zobaczyć opis, uzupełnij parametry powyżej.</p>
+            </div>
+        </div>
+    </section>
+    <section id="mechanism">
+        <div class="row">
+            <h3 class="col-12 text-center my-4">Skąd taki wynik?</h3>
+            <p class="mechanism-paragraph text-center col-12">Mechanizm dzialania aplikacji znajdziesz <span class="mechanism-span"> tutaj </span></p>
+            <p class="mechanism-paragraph text-center col-12">A materiały źródłowe na podstawie których opracowano aplikację znajdziesz <span class="mechanism-span"> tutaj </span> </p>
+        </div>
+    </section>
+</main>
+<footer>
+    <div class="row text-center justify-content-center footer py-3">
+            <a href="" class="footer-insider"><i class="fa fa-facebook-f icon mx-3"></i></a>
+            <a href="" class="footer-insider"><i class="fa fa-twitter icon mx-3"></i></a>
+            <a href="" class="footer-insider"><i class="fa fa-github icon mx-3"></i></a>
+    </div>
+</footer>
+    <script src="main.bundle.js"></script>
+</body>
+</html>
