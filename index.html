@@ -12,13 +12,15 @@
 <body>
     <header class="offset-1 col-10">
         <nav>
-            <div class="hamburger-menu">
+            <div class="hamburger-menu" id="menu-toggler">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
             </div>
-            <ul class="menu">
-                <li></li>
+            <ul class="untoggled" id="menu">
+                <a href="#about"><li>O aplikacji</li></a>
+                <a href="#mechanism"><li>Mechanizm działania</li></a>
+                <a href="#footer"><li>Kontakt</li></a>
             </ul>
         </div>
     </nav>
@@ -27,31 +29,29 @@
 </header>
 <main>
     <section id="welcome" class="row">
-        <div id="welcome-left" class="offset-1 col-10">
+        <div class="offset-0 offset-md-1 col-12 col-md-10">
             <span id="dobrane"></span>
             <h2 class="col-12 text-center subtitle my-2">Co chcesz dobrać?</h2>
-            <select class="form-control offset-1 col-10" id="choosing">
-                <option class="base-option" id="Krawat">Krawat</option>
-                <option class="base-option" id="Poszetkę">Poszetkę</option>
-                <option class="base-option" id="Muchę">Muchę</option>
-                <option class="base-option" id="Fular">Fular</option>
-                <option class="base-option" id="Skarpetki">Skarpetki</option>
-            </select>
+            <div class="row mx-auto space-between">
+                <div class="col text-center" ><p id="chose-tie" class="what">Krawat</p></div>
+                <div class="col text-center" ><p id="chose-pocketSquare" class="what">Poszetkę</p></div>
+                <div class="col text-center" ><p id="chose-bowTie" class="what">Muchę</p></div>
+                <div class="col text-center" ><p id="chose-ascot" class="what">Fular</p></div>
+            </div>
         </div>
     </section>
     <section id="counting">
         <div class="row">
-        <div class="offset-1 col-10">
-            <h2 class="col-12 text-center my-2">A co już masz?</h2>
-            <select class="form-control offset-1 col-10" id="base">
-                    <option class="base-option" id="base-tie">Krawat</option>
-                    <option class="base-option" id="base-pocketSquare">Poszetkę</option>
-                    <option class="base-option" id="base-bowTie">Muchę</option>
-                    <option class="base-option" id="base-ascot">Fular</option>
-                    <option class="base-option" id="base-socks">Skarpetki</option>
-                </select>
+            <div class="offset-0 offset-md-1 col-12 col-md-10">
+                <h2 class="col-12 text-center my-2">A co już masz?</h2>
+                <div class="row mx-auto space-between">
+                    <div class="col text-center"><p id="chose-tie2" class="what">Krawat</p></div>
+                    <div class="col text-center"><p id="chose-pocketSquare2" class="what">Poszetkę</p></div>
+                    <div class="col text-center"><p id="chose-bowTie2" class="what">Muchę</p></div>
+                    <div class="col text-center"><p id="chose-ascot2" class="what">Fular</p></div>
                 </div>
-                </div>
+            </div>
+        </div>
     </section>
     <section id="parameters">
         <div class="row">
@@ -86,7 +86,6 @@
                     <button type="button" id="start" class="mt-4 btn btn-dark parameters-button ">Dobierz!</button>
                 </form>
                 </div>
-                
         </div>
     </section>
     <section id="result">
@@ -96,13 +95,13 @@
                 <div class="results-include mx-auto col-11 col-sm-10 col-md-10 col-lg-8 col-xl-6 p-2" id="ex-1">
                     <h4 class="text-center p-2">Harmonijny Kontrast</h4>
                     <div class="row">
-                        <p class="results-paragraph col-6">Kolor pierwszorzędny</p><div class="mx-auto col-3 col-sm-4 xl-3 result-colorBox" id="firstColorResult-1"></div>
+                        <p class="results-paragraph col-6">Kolor pierwszorzędny</p><div class="mx-auto result-colorBox" id="firstColorResult-1"></div>
                 </div>
                 <div class="row">
-                    <p class="results-paragraph col-6">Kolor drugorzędny</p><div class="mx-auto col-4 result-colorBox" id="secondColorResult-1"></div>
+                    <p class="results-paragraph col-6">Kolor drugorzędny</p><div class="mx-auto result-colorBox" id="secondColorResult-1"></div>
                 </div>
                     <div class="row">
-                    <p class="results-paragraph col-6">Kolor trzeciorzędny</p><div class="mx-auto col-4 result-colorBox" id="thirdColorResult-1"></div>
+                    <p class="results-paragraph col-6">Kolor trzeciorzędny</p><div class="mx-auto result-colorBox" id="thirdColorResult-1"></div>
                 </div>
                 <div class="row">
                     <p class="results-paragraph col-6">Gęstość wzoru</p><p class="col-6" id="patternResult-1"></p>
@@ -116,13 +115,13 @@
                 <div class="results-include mx-auto col-11 col-sm-10 col-md-10 col-lg-8 col-xl-6 p-2" id="ex-2">
                         <h4 class="text-center p-2">Ostry kontrast</h4>
                        <div class="row">
-                            <p class="results-paragraph col-6">Kolor pierwszorzędny</p><div class="mx-auto col-4 result-colorBox" id="firstColorResult-2"></div>
+                            <p class="results-paragraph col-6">Kolor pierwszorzędny</p><div class="mx-auto result-colorBox" id="firstColorResult-2"></div>
                         </div>
                        <div class="row">
-                           <p class="results-paragraph col-6">Kolor drugorzędny</p><div class="mx-auto col-4 result-colorBox" id="secondColorResult-2"></div>
+                           <p class="results-paragraph col-6">Kolor drugorzędny</p><div class="mx-auto result-colorBox" id="secondColorResult-2"></div>
                         </div> 
                        <div class="row">
-                            <p class="results-paragraph col-6">Kolor trzeciorzędny</p><div class="mx-auto col-4 result-colorBox" id="thirdColorResult-2"></div>
+                            <p class="results-paragraph col-6">Kolor trzeciorzędny</p><div class="mx-auto result-colorBox" id="thirdColorResult-2"></div>
                         </div>
                        <div class="row">
                             <p class="results-paragraph col-6">Gęstość wzoru</p><p class="col-6" id="patternResult-2"></p>
@@ -136,13 +135,13 @@
                 <div class="results-include mx-auto col-11 col-sm-10 col-md-10 col-lg-8 col-xl-6 p-2"  id="ex-3">
                         <h4 class="text-center p-2">Harmonia Barw</h4>
                        <div class="row">
-                            <p class="results-paragraph col-6">Kolor pierwszorzędny</p><div class="mx-auto col-4 result-colorBox" id="firstColorResult-3"></div>
+                            <p class="results-paragraph col-6">Kolor pierwszorzędny</p><div class="mx-auto result-colorBox" id="firstColorResult-3"></div>
                         </div>
                        <div class="row">
-                            <p class="results-paragraph col-6">Kolor drugorzędny</p><div class="mx-auto col-4 result-colorBox" id="secondColorResult-3"></div>
+                            <p class="results-paragraph col-6">Kolor drugorzędny</p><div class="mx-auto result-colorBox" id="secondColorResult-3"></div>
                         </div>
                        <div class="row">
-                           <p class="results-paragraph col-6">Kolor trzeciorzędny</p><div class="mx-auto col-4 result-colorBox" id="thirdColorResult-3"></div>
+                           <p class="results-paragraph col-6">Kolor trzeciorzędny</p><div class="mx-auto result-colorBox" id="thirdColorResult-3"></div>
                         </div> 
                        <div class="row">
                             <p class="results-paragraph col-6">Gęstość wzoru</p><p class="col-6" id="patternResult-3"></p>
@@ -166,17 +165,17 @@
         <div class="row">
             <h3 class="col-12 text-center my-4">Skąd taki wynik?</h3>
             <p class="mechanism-paragraph text-center col-12">Mechanizm dzialania aplikacji znajdziesz <span class="mechanism-span"> tutaj </span></p>
-            <p class="mechanism-paragraph text-center col-12">A materiały źródłowe na podstawie których opracowano aplikację znajdziesz <span class="mechanism-span"> tutaj </span> </p>
+            <p class="mechanism-paragraph text-center col-12" id="about">A materiały źródłowe na podstawie których opracowano aplikację znajdziesz <span class="mechanism-span"> tutaj </span> </p>
         </div>
     </section>
 </main>
 <footer>
-    <div class="row text-center justify-content-center footer py-3">
+    <div class="row text-center justify-content-center footer py-3" id="footer">
             <a href="" class="footer-insider"><i class="fa fa-facebook-f icon mx-3"></i></a>
             <a href="" class="footer-insider"><i class="fa fa-twitter icon mx-3"></i></a>
             <a href="" class="footer-insider"><i class="fa fa-github icon mx-3"></i></a>
     </div>
 </footer>
-    <script src="main.bundle.js"></script>
+    <script src="main.bundle.js" async></script>
 </body>
 </html>
