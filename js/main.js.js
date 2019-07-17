@@ -15,30 +15,78 @@ tie2 = document.getElementById("chose-tie2"),
 pocketSquare2 = document.getElementById("chose-pocketSquare2"),
 bowTie2 = document.getElementById("chose-bowTie2"),
 ascot2 = document.getElementById("chose-ascot2"),
-describe = document.getElementById("describe-paragraph");
+line = document.querySelector(".menu__line"),
+lines = document.querySelectorAll(".menu__line"),
+describe = document.getElementById("describe");
 firstColor.onchange = firstColor.value;
 secondColor.onchange = secondColor.value;
 thirdColor.onchange = thirdColor.value;
 pattern.onchange = pattern.value;
 patternType.onchange = patternType.value;
-const chosing = function() {
-    this.classList.contains("hovered") ? this.classList.remove("hovered") :this.classList.add("hovered");
+const chosing1 = function() {
+    if (this.classList.contains("target--hovered")){
+        this.classList.remove("target--hovered");
+    }  else {
+        tie.classList.remove("target--hovered");
+        pocketSquare.classList.remove("target--hovered");
+        bowTie.classList.remove("target--hovered");
+        ascot.classList.remove("target--hovered");
+        this.classList.add("target--hovered");
+    }
 };
 
-tie.addEventListener("click", chosing);
-pocketSquare.addEventListener("click", chosing);
-bowTie.addEventListener("click", chosing);
-ascot.addEventListener("click", chosing);
-tie2.addEventListener("click", chosing);
-pocketSquare2.addEventListener("click", chosing);
-bowTie2.addEventListener("click", chosing);
-ascot2.addEventListener("click", chosing);
+const chosing2 = function() {
+    if (document.querySelector("#what .target--hovered") === null){
+        alert("Najpierw wybierz, co chcesz dobrać");
+    } else if (this.innerText == document.querySelector("#what .target--hovered").innerText){
+        alert("Nie możesz dobierać tych samych elementów do siebie");
+    }
+    else {
+            if (this.classList.contains("target--hovered")){
+            this.classList.remove("target--hovered");
+        }  else {
+            tie2.classList.remove("target--hovered");
+            pocketSquare2.classList.remove("target--hovered");
+            bowTie2.classList.remove("target--hovered");
+            ascot2.classList.remove("target--hovered");
+            this.classList.add("target--hovered");
+        }
+    }
+};
 
+tie.addEventListener("click", chosing1);
+pocketSquare.addEventListener("click", chosing1);
+bowTie.addEventListener("click", chosing1);
+ascot.addEventListener("click", chosing1);
+tie2.addEventListener("click", chosing2);
+pocketSquare2.addEventListener("click", chosing2);
+bowTie2.addEventListener("click", chosing2);
+ascot2.addEventListener("click", chosing2);
+
+const animation = function() {
+    if (line.classList.contains("menu__line--actived")){
+        for (let i = 0, max=lines.length -1; max; i++) {
+            lines[i].classList.remove("menu__line--actived");
+        }
+    } else {
+        for (let i = 0, max = lines.length -1; max; i++) {
+            lines[i].classList.add("menu__line--actived");
+        }
+    }
+};
 
 const toglowanie = function(){
     let hamburgerek = document.getElementById("menu");
-    hamburgerek.className == "untoggled" ? hamburgerek.className = "toggled" : hamburgerek.className = "untoggled"
-}
+    if (hamburgerek.classList.contains("menu__list--untoggled")){
+        hamburgerek.classList.add("menu__list--toggled");
+        hamburgerek.classList.remove("menu__list--untoggled");
+    } else {
+    hamburgerek.classList.remove("menu__list--toggled");
+    hamburgerek.classList.add("menu__list--untoggled");
+    }
+    animation();
+};
+
 toggler.addEventListener("click",toglowanie);
 
 function HEX2RGB (hex) {
@@ -91,7 +139,7 @@ start.onclick = function() {
     
     function invertion(val) {
         for (let i = 0; i < 3; i++) {
-            val[i] = 255 - val[i]
+            val[i] = 255 - val[i];
         }
         return val;
     }
@@ -99,9 +147,9 @@ start.onclick = function() {
         for (let i = 0; i < 3; i++){
             if (val[i] >= 155)
             {
-                val[i] = val[i] - 50
+                val[i] = val[i] - 50;
             } else {
-                val[i] = 50 + val[i]
+                val[i] = 50 + val[i];
             }
         }
         return val;
@@ -109,23 +157,22 @@ start.onclick = function() {
     function monochrome(val) {
         if (val[0]+val[1]+val[2] >= 383) {
             for (let i = 0; i < 3; i++){
-                val[i] = 0
+                val[i] = 0;
             }
         } else { 
             for (let i = 0; i < 3; i++){
-                val[i] = 255
+                val[i] = 255;
             }
         }
-        
         return val;
-    };
+    }
       function componentToHex(c) {
           let r = c[0].toString(16),
           g = c[1].toString(16),          
           b = c[2].toString(16);
-          r = r == 0 ? r + 0: r;
-          b = b == 0 ? b + 0: b;
-          g = g == 0 ? g + 0: g;
+          r = r === 0 ? r + 0: r;
+          b = b === 0 ? b + 0: b;
+          g = g === 0 ? g + 0: g;
             return "#" + r + g + b;
           }
           function patterns(){
@@ -174,18 +221,14 @@ start.onclick = function() {
                         prt2.innerHTML = "Brak";
                         prt3.innerHTML = "Grochy";
                         break;
-            }
-        }
-
+            };
+        };
         let closeColor1 = componentToHex(closing(HEX2RGB(firstColor.value))),
         invertedColor1 = componentToHex(invertion(HEX2RGB(firstColor.value))),
         monochromaticColor1 = componentToHex(monochrome(HEX2RGB(firstColor.value))),
         closeColor2 = componentToHex(closing(HEX2RGB(secondColor.value))),
         invertedColor2 = componentToHex(invertion(HEX2RGB(secondColor.value))),
-        monochromaticColor2 = componentToHex(monochrome(HEX2RGB(secondColor.value))),
-        closeColor3 = componentToHex(closing(HEX2RGB(thirdColor.value))),
-        invertedColor3 = componentToHex(invertion(HEX2RGB(thirdColor.value))),
-        monochromaticColor3 = componentToHex(monochrome(HEX2RGB(thirdColor.value)));
+        monochromaticColor2 = componentToHex(monochrome(HEX2RGB(secondColor.value)));
         fcr1.style.backgroundColor = closeColor2;
         scr1.style.backgroundColor = closeColor1;
         tcr1.style.backgroundColor = monochromaticColor1;
@@ -198,4 +241,5 @@ start.onclick = function() {
         patterns();
         patternTypes();
         describe.innerHTML = 'Propozycja 1 dobiera barwy na zasadzie harmonijnego kontrastu, gdzie barwa 1 (dominująca)jest zbliżona do barwy 2 przedmiotu, który już posiadasz. Barwa 2 jest zbliżona do dominującej barwy na przedmiocie, który posiadasza, a barwa 3 jest biała lub czarna i dobierana jest na zasadzie kontrastu do ciepła barwy dominującej.<br><br>Propozycja 2 dobiera barwy na zasadzie ostrego kontrastu, a więc barwa dominująca (1) kontrastuje do wybranej przez Ciebie barwy drugorzędnej. Barwa drugorzędna z kolei kontrastuje do barwy dominującej, którą wybrałeś. Barwa 3 jest dobrana tutaj dokładnie w ten sam sposób, co w propozycji 1.<br><br>Propozycja 3 dobiera barwy na zasadzie harmonii barw, więc jej barwa 1 jest zblżona do tej wybranej przez Ciebie. Barwa 2 opiera się na kontraście do barwy 2 wybranej przez Ciebie, a kolor 3 jest monochromatycznym kontrastem do ciepła barwy 3.';
-}
+};
+
