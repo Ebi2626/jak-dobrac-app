@@ -238,3 +238,12 @@ form {
         }
     }    
 }
+/* Media queries */
+@media all and (max-width: 476px) {
+  .menu__link {
+      font-size: 14px;
+  }
+  .result__paragraph--answer {
+      color: black;
+  }
+}
